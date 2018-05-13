@@ -1,44 +1,54 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { CreatePlayerViewPage } from '../pages/create-player-view/create-player-view';
+import{	GoViewPage }	from '../pages/go-view/go-view';
+
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBTP_XfBml30C9e7X1TaHTIrapAj9lnY84",
+  authDomain: "ws6-project.firebaseapp.com",
+  databaseURL: "https://ws6-project.firebaseio.com",
+  projectId: "ws6-project",
+  storageBucket: "ws6-project.appspot.com",
+  messagingSenderId: "371172372553"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CreatePlayerViewPage
+    GoViewPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    CreatePlayerViewPage
+    GoViewPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseServiceProvider
   ]
 })
-export class AppModule { }
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDZeS02gOeRtdh1p3WcS_3KGb49qchY7U0",
-  authDomain: "trackmytime-a35b5.firebaseapp.com",
-  databaseURL: "https://trackmytime-a35b5.firebaseio.com",
-  projectId: "trackmytime-a35b5",
-  storageBucket: "trackmytime-a35b5.appspot.com",
-  messagingSenderId: "1073782864"
-}; 
+export class AppModule {}

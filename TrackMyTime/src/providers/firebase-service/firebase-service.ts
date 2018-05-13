@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the FirebaseServiceProvider provider.
@@ -10,8 +13,22 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class FirebaseServiceProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello FirebaseServiceProvider Provider');
+  //Membervariable
+  playserRef: AngularFireList<any>;
+  players: Observable<any[]>;
+
+  constructor(public afd: AngularFireDatabase) {
+    this.playserRef = this.afd.list('/players/');
+    this.players = this.playserRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
   }
 
-} 
+  addPlayer(name, color) {
+    return this.playserRef.push({ name: name, color: color, time:"00:00:00" });
+  }
+
+  getPlayers() {
+    return this.players;
+  }
+}

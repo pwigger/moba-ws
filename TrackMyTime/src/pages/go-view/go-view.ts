@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CreatePlayerViewPage page.
+ * Generated class for the GoViewPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-create-player-view',
-  templateUrl: 'create-player-view.html',
+  selector: 'page-go-view',
+  templateUrl: 'go-view.html',
 })
-export class CreatePlayerViewPage {
-  myParam:any;
+export class GoViewPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.myParam = navParams.get('item');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePlayerViewPage');
+    console.log('ionViewDidLoad GoViewPage');
   }
 
 }

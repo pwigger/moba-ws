@@ -1,11 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-     Start Page
+      Gruppe erstellen
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button	ion-button	secondary	(click)="loadCreatView($event,	'')">NEXT</button>
+  <div class="list">
+    <form (ngSubmit)="addPlayers()" [formGroup]="players">
+      <ion-item>
+        <ion-input type="text" maxlength="4" formControlName="player1" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" maxlength="4" formControlName="player2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" maxlength="4" formControlName="player3"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" maxlength="4" formControlName="player4"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" maxlength="4" formControlName="player5"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>Gruppe erstellen</button>
+    </form>
+  </div>
 </ion-content>
