@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+
+import {StopTimePage} from '../stop-time/stop-time';
 
 /**
  * Generated class for the GoViewPage page.
@@ -19,7 +21,10 @@ export class GoViewPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GoViewPage');
+    //console.log('ionViewDidLoad GoViewPage');
   }
 
+  loadStopTimeView() {
+    this.navCtrl.push(StopTimePage, {});
+  }
 }

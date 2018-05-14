@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>
       Gruppe erstellen
     </ion-title>
@@ -8,23 +8,30 @@
 
 <ion-content padding>
   <div class="list">
-    <form (ngSubmit)="addPlayers()" [formGroup]="players">
-      <ion-item>
-        <ion-input type="text" maxlength="4" formControlName="player1" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" maxlength="4" formControlName="player2"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" maxlength="4" formControlName="player3"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" maxlength="4" formControlName="player4"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" maxlength="4" formControlName="player5"></ion-input>
-      </ion-item>
-      <button ion-button type="submit" block>Gruppe erstellen</button>
-    </form>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10 offset-1="">
+          <form (ngSubmit)="addPlayers()" [formGroup]="players">
+            <ion-item>
+              <ion-input type="text" maxlength="4" formControlName="player1"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" maxlength="4" formControlName="player2"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" maxlength="4" formControlName="player3"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" maxlength="4" formControlName="player4"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" maxlength="4" formControlName="player5"></ion-input>
+            </ion-item>
+            <br>
+            <button ion-button type="submit" block large>WEITER</button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

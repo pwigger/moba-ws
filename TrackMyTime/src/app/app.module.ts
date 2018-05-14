@@ -8,6 +8,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import{	GoViewPage }	from '../pages/go-view/go-view';
+import{	StopTimePage }	from '../pages/stop-time/stop-time';
+import{	RankingPage }	from '../pages/ranking/ranking';
+
 
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -28,7 +31,9 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    GoViewPage
+    GoViewPage,
+    StopTimePage,
+    RankingPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,9 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    GoViewPage
+    GoViewPage,
+    StopTimePage,
+    RankingPage
   ],
   providers: [
     StatusBar,
