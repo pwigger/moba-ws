@@ -6,15 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar hideBackButton="true">
-    <ion-title>Rangliste</ion-title>
+  <ion-navbar hideBackButton="true" color="primary">
+    <ion-title class="navbar-title">
+      Rangliste
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button block large (click)="loadHomeView()">
-    NÄCHSTE GRUPPE
-  </button>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <div class="row" *ngFor="let player of players | async">
+          <div class="col">
+              <ion-badge item-end style="background-color:{{player.color}}">1</ion-badge>
+          </div>
+          <div class="col">{{player.name}}</div>
+          <div class="col">{{player.time}}</div>
+        </div>
+
+        <button ion-button block large (click)="loadHomeView()" class="next-button">
+          NÄCHSTE GRUPPE
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

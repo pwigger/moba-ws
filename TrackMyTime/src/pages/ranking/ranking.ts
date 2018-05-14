@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from "../home/home";
+import {FirebaseServiceProvider} from "../../providers/firebase-service/firebase-service";
+import {Observable} from "rxjs/Observable";
 
 /**
  * Generated class for the RankingPage page.
@@ -16,7 +18,10 @@ import {HomePage} from "../home/home";
 })
 export class RankingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  players: Observable<any[]>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
+    this.players = this.firebaseService.getPlayers();
   }
 
   ionViewDidLoad() {

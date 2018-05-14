@@ -1,17 +1,18 @@
-<ion-header>
-  <ion-navbar hideBackButton="true">
-    <ion-title>
+<ion-header >
+  <ion-navbar hideBackButton="true" color="primary">
+    <ion-title class="navbar-title">
       Gruppe erstellen
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
   <div class="list">
     <ion-grid>
       <ion-row>
-        <ion-col col-10 offset-1="">
-          <form (ngSubmit)="addPlayers()" [formGroup]="players">
+        <ion-col col-10 offset-1>
+          <form (ngSubmit)="addPlayers()" [formGroup]="players" class="create-player-form">
             <ion-item>
               <ion-input type="text" maxlength="4" formControlName="player1"></ion-input>
             </ion-item>
@@ -27,8 +28,8 @@
             <ion-item>
               <ion-input type="text" maxlength="4" formControlName="player5"></ion-input>
             </ion-item>
-            <br>
-            <button ion-button type="submit" block large>WEITER</button>
+
+            <button ion-button type="submit" class="next-button" block large>WEITER</button>
           </form>
         </ion-col>
       </ion-row>

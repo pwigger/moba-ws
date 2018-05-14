@@ -26,7 +26,7 @@ export class HomePage {
 
   addPlayers() {
     for (let i = 1; i < 6; i++) {
-      this.firebaseService.addPlayer(this.players.value["player" + i], "0050d1").then(() => {
+      this.firebaseService.addPlayer(this.players.value["player" + i], "#00d181").then(() => {
       });
     }
 

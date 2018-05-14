@@ -9,10 +9,14 @@
 </ion-header>
 
 
-<ion-content padding>
-
-  <button ion-button block (click)="loadStopTimeView()" large>
-    GO
-  </button>
-
+<ion-content class="bg-style">
+  <ion-grid class="go-button-grid">
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <button ion-button block class="go-button" (click)="loadStopTimeView()" large round>
+          GO
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
