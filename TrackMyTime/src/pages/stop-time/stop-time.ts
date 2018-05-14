@@ -16,8 +16,7 @@ import { getLocaleTimeFormat } from '@angular/common';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-
+var currentTime=0;
 
 
 @IonicPage()
@@ -25,18 +24,21 @@ import { getLocaleTimeFormat } from '@angular/common';
   selector: 'page-stop-time',
   templateUrl: 'stop-time.html',
 })
+
+
+
 export class StopTimePage {
   
   players: Observable<any[]>;
   starttime: number;
+  currentTimeAsString: String;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
     this.players = this.firebaseService.getPlayers();
-    this.starttime=new Date().getTime();
-    console.log(this.starttime);
-
-
+    currentTime=0;
+    setInterval(function(){currentTime+=10;},10);
+    
   }
 
   ionViewDidLoad() {
@@ -51,14 +53,9 @@ export class StopTimePage {
     this.navCtrl.push(RankingPage, {});
   }
 
-  getTime(){
-  return (format( (new Date().getTime())-this.starttime ));
-  }
-
-  
-
-  
+  getTime(){return format(currentTime);}
 }
+
 
 function format(ms) {
   var minutes = Math.floor(ms / (1000 * 60)),
@@ -67,3 +64,8 @@ function format(ms) {
 
   return minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ':' + (fract < 10 ? '0' : '') + fract;
 }
+
+
+
+
+
