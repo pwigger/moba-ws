@@ -36,6 +36,8 @@ export class StopTimePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
     this.players = this.firebaseService.getPlayers();
+   
+
     currentTime=0;
     setInterval(function(){currentTime+=10;},10);
     
@@ -54,6 +56,11 @@ export class StopTimePage {
   }
 
   getTime(){return format(currentTime);}
+
+  finished(p){
+    p.time=format(currentTime);
+    console.log("Player " +p.name+ " Finished with time: " + p.time);
+}
 }
 
 
@@ -64,6 +71,8 @@ function format(ms) {
 
   return minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ':' + (fract < 10 ? '0' : '') + fract;
 }
+
+
 
 
 
