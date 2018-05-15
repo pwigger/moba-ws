@@ -4,7 +4,7 @@ import {NavController} from 'ionic-angular';
 import {FirebaseServiceProvider} from '../../providers/firebase-service/firebase-service';
 
 import {GoViewPage} from '../go-view/go-view';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'page-home',
@@ -16,11 +16,11 @@ export class HomePage {
   constructor(public navCtrl: NavController, public firebaseService: FirebaseServiceProvider, private formBuilder: FormBuilder) {
 
     this.players = this.formBuilder.group({
-      player1: [''],
-      player2: [''],
-      player3: [''],
-      player4: [''],
-      player5: [''],
+      player1: ['', Validators.required],
+      player2: ['', Validators.required],
+      player3: ['', Validators.required],
+      player4: ['', Validators.required],
+      player5: ['', Validators.required],
     });
   }
 
