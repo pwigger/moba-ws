@@ -19,13 +19,12 @@ export class HomePage {
       player1: ['', Validators.required],
       player2: ['', Validators.required],
       player3: ['', Validators.required],
-      player4: ['', Validators.required],
-      player5: ['', Validators.required],
+      player4: ['', Validators.required]
     });
   }
 
   addPlayers() {
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 5; i++) {
       this.firebaseService.addPlayer(this.players.value["player" + i], "#00d181").then(() => {
       });
     }

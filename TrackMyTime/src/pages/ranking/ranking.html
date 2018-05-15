@@ -19,7 +19,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-10 offset-1>
-        <div class="row" *ngFor="let player of players | async">
+        <div class="ranking-list row" *ngFor="let player of players | async">
           <div class="col">
               <ion-badge item-end style="background-color:{{player.color}}">1</ion-badge>
           </div>

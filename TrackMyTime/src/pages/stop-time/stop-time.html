@@ -11,22 +11,20 @@
 
 
 <ion-content padding>
-  <ion-label>timer: {{getTime()}} </ion-label>
- 
+  <ion-label>timer: {{getTime()}}</ion-label>
+
 
   <ion-grid>
     <ion-row>
       <ion-col col-10 offset-1>
 
-        <ion-list>
-          <ion-item *ngFor="let player of players | async">
-
+        <ion-row>
+          <ion-col col-3 *ngFor="let player of players | async">
             <button ion-button block color="danger" large (click)="finished(player)">
-             {{player.name}}
+              {{player.name}}
             </button>
-
-          </ion-item>
-        </ion-list>
+          </ion-col>
+        </ion-row>
         <br>
         <button ion-button block color="danger" large (click)="cancel()">
           ABBRECHEN
