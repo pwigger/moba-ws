@@ -11,13 +11,14 @@
 
 
 <ion-content padding>
-  <ion-label>timer: {{getTime()}}</ion-label>
-
-
   <ion-grid>
-    <ion-row>
+    <ion-row class="timer-background">
+      <ion-col col-md-10 offset-1>
+        <ion-label class="timer">{{getTime()}}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="stop-player-background">
       <ion-col col-10 offset-1>
-
         <ion-row>
           <ion-col col-3 *ngFor="let player of players | async">
             <button ion-button block color="danger" large (click)="finished(player)">

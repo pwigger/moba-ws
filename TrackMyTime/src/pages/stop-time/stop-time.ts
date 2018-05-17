@@ -37,7 +37,7 @@ export class StopTimePage {
 
     currentTime = 0;
     setInterval(function () {
-      currentTime += 10;
+      currentTime += 9;
     }, 10);
   }
 
