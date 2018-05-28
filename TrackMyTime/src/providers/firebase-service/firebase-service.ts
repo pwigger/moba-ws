@@ -25,10 +25,14 @@ export class FirebaseServiceProvider {
   }
 
   addPlayer(name, color) {
-    return this.playserRef.push({ name: name, color: color, time:"00:00:00" });
+    return this.playserRef.push({ name: name, color: color, time:"00:00:00", rank:0});
   }
 
   getPlayers() {
     return this.players;
+  }
+
+  setTime(key, time, rank) {
+    return this.playserRef.update(key, { time: time, rank:rank });
   }
 }

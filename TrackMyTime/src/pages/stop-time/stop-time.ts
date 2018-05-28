@@ -1,12 +1,11 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {FirebaseServiceProvider} from '../../providers/firebase-service/firebase-service';
-import {Observable} from 'rxjs/Observable';
+import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
+import { Observable } from 'rxjs/Observable';
 
-import {HomePage} from '../home/home';
-import {RankingPage} from '../ranking/ranking';
-import {getLocaleTimeFormat} from '@angular/common';
+import { HomePage } from '../home/home';
+import { RankingPage } from '../ranking/ranking';
 
 
 /**
@@ -16,6 +15,7 @@ import {getLocaleTimeFormat} from '@angular/common';
  * Ionic pages and navigation.
  */
 let currentTime = 0;
+let rank = 1;
 
 
 @IonicPage()
@@ -31,18 +31,19 @@ export class StopTimePage {
   starttime: number;
   currentTimeAsString: String;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
     this.players = this.firebaseService.getPlayers();
 
     currentTime = 0;
+    rank = 1;
+
     setInterval(function () {
       currentTime += 9;
     }, 10);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StopTimePage');
+    //console.log('ionViewDidLoad StopTimePage');
   }
 
   cancel() {
@@ -57,9 +58,11 @@ export class StopTimePage {
     return format(currentTime);
   }
 
-  finished(p) {
-    p.time = format(currentTime);
-    console.log("Player " + p.name + " Finished with time: " + p.time);
+  finished(key) {
+    this.firebaseService.setTime(key, format(currentTime), rank++);
+    if (rank > 4) {
+      this.loadRankingView();
+    }
   }
 }
 

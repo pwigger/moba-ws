@@ -21,7 +21,7 @@
       <ion-col col-10 offset-1>
         <ion-row>
           <ion-col col-3 *ngFor="let player of players | async">
-            <button ion-button block color="danger" large (click)="finished(player)">
+            <button ion-button block color="primary" large (click)="finished(player.key)">
               {{player.name}}
             </button>
           </ion-col>
@@ -29,11 +29,6 @@
         <br>
         <button ion-button block color="danger" large (click)="cancel()">
           ABBRECHEN
-        </button>
-
-        <br>
-        <button ion-button block large (click)="loadRankingView()">
-          RANGLISTE
         </button>
       </ion-col>
     </ion-row>
