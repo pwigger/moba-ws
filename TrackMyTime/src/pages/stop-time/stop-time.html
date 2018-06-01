@@ -21,7 +21,7 @@
       <ion-col col-10 offset-1>
         <ion-row>
           <ion-col col-3 *ngFor="let player of players | async">
-            <button ion-button block color="primary" large (click)="finished(player.key)">
+            <button ion-button class="{{player.color}}" (click)="finished(player.key)">
               {{player.name}}
             </button>
           </ion-col>
