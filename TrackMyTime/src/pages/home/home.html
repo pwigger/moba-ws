@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-navbar hideBackButton="true" color="primary">
     <ion-title class="navbar-title">
       Gruppe erstellen
@@ -10,6 +10,13 @@
 <ion-content padding>
   <div class="list">
     <ion-grid>
+      <ion-row>
+        <ion-col col-10 offset-1>
+          <p class="text-align-center">
+            Trage die Spieler Kennzeichen in den folgenden Felder ein
+          </p>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col col-10 offset-1>
           <form (ngSubmit)="addPlayers()" [formGroup]="players" class="create-player-form">
