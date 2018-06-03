@@ -21,7 +21,7 @@
       <ion-col col-10 offset-1>
         <div class="ranking-list row" *ngFor="let player of players | async">
           <div class="col">
-              <ion-badge item-end class="ranking-bage">{{player.rank}}</ion-badge>
+              <ion-badge item-end class="ranking-bage {{player.color}}">{{player.rank}}</ion-badge>
           </div>
           <div class="col">{{player.name}}</div>
           <div class="col">{{player.time}}</div>
