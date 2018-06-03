@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
@@ -60,10 +60,12 @@ export class StopTimePage {
 
   finished(key) {
     this.firebaseService.setTime(key, format(currentTime), rank++);
+    
     if (rank > 4) {
       this.loadRankingView();
     }
   }
+  
 }
 
 
@@ -74,6 +76,9 @@ function format(ms) {
 
   return minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ':' + (fract < 10 ? '0' : '') + fract;
 }
+
+
+ 
 
 
 
