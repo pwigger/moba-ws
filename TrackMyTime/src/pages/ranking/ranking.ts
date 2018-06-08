@@ -35,7 +35,10 @@ export class RankingPage {
   }
 
   loadHomeView() {
+    this.firebaseService.playserRef.remove();
     this.navCtrl.push(HomePage, {});
   }
+
+  
 
 }
