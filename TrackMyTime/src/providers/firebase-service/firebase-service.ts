@@ -16,24 +16,31 @@ export class FirebaseServiceProvider {
   //Membervariable
   playserRef: AngularFireList<any>;
   players: Observable<any[]>;
+  counter:number;
 
 
 
   constructor(public afd: AngularFireDatabase) {
     this.playserRef = this.afd.list('/players/');
-   
+    this.playserRef.remove();
+
+    this.counter=0;
     this.players = this.playserRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
   }
 
   addPlayer(name, color) {
+    this.counter++;
     return this.playserRef.push({ name: name, color: color, time:"00:00:00", rank:0});
   }
 
   getPlayers() {
     return this.players;
   }
+  getCount()
+{return this.counter;}
+resetCount(){this.counter=0;}
 
   setTime(key, time, rank) {
     console.log('set Color to Danger')

@@ -36,6 +36,7 @@ export class RankingPage {
 
   loadHomeView() {
     this.firebaseService.playserRef.remove();
+    this.firebaseService.resetCount();
     this.navCtrl.push(HomePage, {});
   }
 

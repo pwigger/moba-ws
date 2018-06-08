@@ -59,10 +59,11 @@ export class StopTimePage {
   }
 
   finished(key) {  
+    console.log(this.firebaseService.getCount());
 
     this.firebaseService.setTime(key, format(currentTime), rank++);
     
-    if (rank > 4) {
+    if (rank > this.firebaseService.getCount()) {
       this.loadRankingView();
     }
   }
