@@ -43,7 +43,6 @@ export class FirebaseServiceProvider {
 resetCount(){this.counter=0;}
 
   setTime(key, time, rank) {
-    console.log('set Color to Danger')
     return this.playserRef.update(key, { time: time, rank:rank, color: 'finished button button-md button-default button-default-md button-block button-block-md button-large button-large-md' });
   }
 }

@@ -15,6 +15,7 @@ import { RankingPage } from '../ranking/ranking';
  * Ionic pages and navigation.
  */
 let currentTime = 0;
+let starttime
 let rank = 1;
 
 
@@ -28,22 +29,23 @@ let rank = 1;
 export class StopTimePage {
 
   players: Observable<any[]>;
-  starttime: number;
   currentTimeAsString: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
     this.players = this.firebaseService.getPlayers();
-
+    starttime=new Date().getTime();
+    currentTime=new Date().getTime()-starttime;
+    console.log(starttime);
     currentTime = 0;
     rank = 1;
 
-    setInterval(function () {
-      currentTime += 9;
+    setInterval(function () { 
+      currentTime = (new Date().getTime())-starttime;
     }, 10);
+
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad StopTimePage');
   }
 
   cancel() {
