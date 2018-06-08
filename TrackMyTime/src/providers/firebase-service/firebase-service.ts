@@ -17,8 +17,11 @@ export class FirebaseServiceProvider {
   playserRef: AngularFireList<any>;
   players: Observable<any[]>;
 
+
+
   constructor(public afd: AngularFireDatabase) {
     this.playserRef = this.afd.list('/players/');
+   
     this.players = this.playserRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
@@ -33,6 +36,7 @@ export class FirebaseServiceProvider {
   }
 
   setTime(key, time, rank) {
-    return this.playserRef.update(key, { time: time, rank:rank });
+    console.log('set Color to Danger')
+    return this.playserRef.update(key, { time: time, rank:rank, color: 'finished button button-md button-default button-default-md button-block button-block-md button-large button-large-md' });
   }
 }

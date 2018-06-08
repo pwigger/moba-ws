@@ -58,7 +58,8 @@ export class StopTimePage {
     return format(currentTime);
   }
 
-  finished(key) {
+  finished(key) {  
+
     this.firebaseService.setTime(key, format(currentTime), rank++);
     
     if (rank > 4) {
